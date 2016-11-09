@@ -44,6 +44,7 @@ reinstall: build
 	go install ./gencheck
 
 ci-docker:
+	docker info
 	docker build -t gencheck-builder .
 
 PWD=$(shell pwd)
