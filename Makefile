@@ -1,6 +1,6 @@
 COVERAGEDIR = coverage
 ifdef CIRCLE_ARTIFACTS
-  COVERAGEDIR = $(CIRCLE_ARTIFACTS)
+  COVERAGEDIR = $(CIRCLE_ARTIFACTS)/coverage
 endif
 
 all: generate fmt build test cover install
@@ -65,10 +65,5 @@ circlecoveralls:
 
 ci-test:
 	docker run --rm --workdir=$(WORKDIR) -v $$(pwd):$(WORKDIR) --entrypoint=/bin/sh gencheck-builder -c "glide install && go build -v -o bin/gencheck ./gencheck"
-
-	make test
-	post:
-	- cd "$SRC_DIR" && make cover
-	- cd "$SRC_DIR" && make coveralls
 
 phony: clean tc build
