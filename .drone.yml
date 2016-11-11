@@ -13,11 +13,9 @@ pipeline:
       - go get github.com/modocache/gover
       - glide install
       - make
-
-workspace:
-  path: /go/src/github.com/abice/gencheck
-
-matrix:
-  GO_VERSION:
-    - 1.6.3
-    - 1.7.3
+  workspace:
+    path: /go/src/github.com/abice/gencheck
+  matrix:
+    GO_VERSION:
+      - 1.6.3
+      - 1.7.3
