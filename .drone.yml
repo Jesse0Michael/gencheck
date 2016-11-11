@@ -1,7 +1,7 @@
 pipeline:
 
   build:
-    image: golang:${GO_VERSION}
+    image: golang:$$GO_VERSION
     pull: true
     environment:
       - GOPATH=/go
