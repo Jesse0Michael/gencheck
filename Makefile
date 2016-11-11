@@ -1,6 +1,8 @@
 COVERAGEDIR = coverage
+SERVICE = drone
 ifdef CIRCLE_ARTIFACTS
   COVERAGEDIR = $(CIRCLE_ARTIFACTS)
+	SERVICE=circle-ci
 endif
 
 all: generate fmt build test cover install
@@ -23,7 +25,7 @@ cover:
 tc: test cover
 coveralls:
 	gover $(COVERAGEDIR) $(COVERAGEDIR)/coveralls.coverprofile
-	goveralls -coverprofile=$(COVERAGEDIR)/coveralls.coverprofile -service=circle-ci -repotoken=$(COVERALLS_TOKEN)
+	goveralls -coverprofile=$(COVERAGEDIR)/coveralls.coverprofile -service=$(SERVICE) -repotoken=$(COVERALLS_TOKEN)
 clean:
 	go clean
 	rm -f bin/gencheck
