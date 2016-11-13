@@ -191,7 +191,7 @@ Tested on go 1.7.3.
 
 ### Build and run unit tests
 
-    make test
+    make
 
 ### TODO
 - [x] Testing for templates
