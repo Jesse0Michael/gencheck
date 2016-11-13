@@ -1,7 +1,6 @@
 pipeline:
   build:
-    image: golang:$$GO_VERSION
-    pull: true
+    image: golang:1.7.3
     environment:
       - GOPATH=/go
     commands:
@@ -16,8 +15,3 @@ pipeline:
 
 workspace:
   path: /go/src/github.com/abice/gencheck
-
-matrix:
-  GO_VERSION:
-    - 1.6.3
-    - 1.7.3
