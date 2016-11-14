@@ -45,7 +45,4 @@ install:
 reinstall: build
 	go install ./gencheck
 
-drone: generate fmt build test cover coveralls
-
-
 phony: clean tc build
