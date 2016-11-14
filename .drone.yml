@@ -10,7 +10,7 @@ build:
     - go get github.com/mattn/goveralls
     - go get github.com/modocache/gover
     - glide install
-    - make
+    - make drone
 
 workspace:
   path: /go/src/github.com/abice/gencheck

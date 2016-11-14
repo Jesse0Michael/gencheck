@@ -1,5 +1,5 @@
 COVERAGEDIR = coverage
-SERVICE = drone
+SERVICE = drone.io
 ifdef CIRCLE_ARTIFACTS
   COVERAGEDIR = $(CIRCLE_ARTIFACTS)
 	SERVICE=circle-ci
@@ -44,6 +44,8 @@ install:
 
 reinstall: build
 	go install ./gencheck
+
+drone: generate fmt build test cover coveralls
 
 
 phony: clean tc build
